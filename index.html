@@ -2,7 +2,8 @@
 <!--
 PLAN
 1. kind: service (Modern Views Landscaping LLC — Houston, TX landscape design, drainage, hardscape & outdoor carpentry; owner Diego Ortiz). Mobile-first dark architectural mood requested by client brief. 6 screens: hero (split), #standard (word-highlight statement on dark slate surface), #services (services-list + nocturnal side elevation), #questions (2x2 architectural concept sketch folio + open 2-col FAQ on shared split line), #process (photo-chapters 4-stage nocturnal architectural sequence), footer#walkthrough (close--type on dark slate surface).
-2. palette brand-dark (bg #0e1311, surface #171c19, ink #ecebe7, accent #d4956a): nocturnal pine-obsidian ground echoes twilight Houston garden lighting, warm bone ink echoes honed Texas limestone, and oiled cedar accent answers Western Red Cedar louvers. type: instrument-serif (Instrument Serif 400 + Instrument Sans 400/500). hero: split. moments: photo-chapters (#process) + word-highlight (#standard); hero entrance: headline arrives first, then lead and visit action; hover: every link, row and button answers.
+2. palette brand-dark (bg #0e1311, surface #171c19, ink #ecebe7, accent #d4956a): nocturnal pine-obsidian ground echoes twilight Houston garden lighting, warm bone ink echoes honed Texas limestone, and oiled cedar accent answers Western Red Cedar louvers. type: instrument-serif (Instrument Serif 400 + Instrument Sans 400/500). hero: photo (v2). moments: photo-chapters (#process) + word-highlight (#standard); hero entrance: headline arrives first, then lead and visit action; hover: every link, row and button answers.
+3. v2 2026-11-26 (ref. Landbook "Genesis Soil Intelligence": composition grammar only, no copy, pictures or effect taken): full-bleed 16:9 nocturnal Blender hero with the build facts docked on its foot; #standard becomes the one contrasting ivory sheet with the subsurface drainage cutaway and a numbered layer legend (one still diagram); sketch folio caption removed.
 -->
 <html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
 <head>
@@ -26,7 +27,7 @@ PLAN
 <meta name="theme-color" content="#0e1311">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wdth,wght@75..100,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wdth,wght@75..100,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -39,8 +40,8 @@ PLAN
 :root {
   --p-bg: #0e1311; --p-surface: #171c19; --p-ink: #ecebe7; --p-muted: #9aa09b;
   --p-accent: #d4956a; --p-accent-ink: #0e1311; --p-action: #d4956a; --p-action-ink: #0e1311;
-  --p-inv-bg: #171c19; --p-inv-surface: #202723; --p-inv-ink: #ecebe7; --p-inv-muted: #a3aaa4;
-  --p-inv-accent: #d4956a; --p-inv-accent-ink: #0e1311; --p-inv-action: #d4956a; --p-inv-action-ink: #0e1311;
+  --p-inv-bg: #eceae4; --p-inv-surface: #e2dfd7; --p-inv-ink: #141a17; --p-inv-muted: #4e5650;
+  --p-inv-accent: #94552a; --p-inv-accent-ink: #ffffff; --p-inv-action: #141a17; --p-inv-action-ink: #eceae4;
   --font-display: "Instrument Serif", Georgia, serif;
   --font-text: "Instrument Sans", system-ui, sans-serif;
   --display-weight: 400;
@@ -120,6 +121,34 @@ small, .t-small, .rows .rows__name small, .sketch-folio__label, .hero__kicker, .
   .sketch-grid { gap: var(--s-3); }
   .sketch-plate > img { aspect-ratio: 16 / 11; }
 }
+
+/* v2 — italic serif accent word */
+h1 em, h2 em { font-style: italic; color: var(--accent); letter-spacing: -0.01em; }
+.hero--photo h1 em { color: var(--p-accent); }
+.hero--photo .hero__facts > div { padding-top: var(--s-4); border-top: 1px solid rgba(236, 235, 231, 0.22); }
+.hero--photo .hero__facts dt { color: var(--p-accent); letter-spacing: 0.04em; }
+.hero--photo::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: rgba(14, 19, 17, 0.34); }
+@media (min-width: 1024px) { .hero--photo::after { background: rgba(14, 19, 17, 0.18); } }
+
+/* The ivory sheet: one contrasting ground, rounded where it meets the dark page */
+.sheet { border-radius: 28px; }
+.sheet .mo-wh__text { font-size: clamp(24px, 2.2vw, 32px); }
+.layers { display: grid; border-top: 1px solid var(--line); }
+.layers > li { display: grid; grid-template-columns: 28px 1fr; gap: var(--s-3); align-items: start; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.layers strong { display: block;  font-family: var(--font-text); font-weight: 500; font-size: var(--t-body); line-height: 1.35; letter-spacing: 0; color: var(--ink); }
+.layers p { font-size: var(--t-small); line-height: 1.5; color: var(--muted); }
+.layers__n, .pin { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; font-size: 12px; font-weight: 600; line-height: 1; background: var(--ink); color: var(--bg); }
+.cutaway { position: relative; overflow: hidden; border-radius: var(--r-lg); aspect-ratio: 16 / 9; background: var(--surface); margin-top: var(--s-6); }
+.cutaway > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pin { position: absolute; z-index: 1; left: var(--x); top: var(--y); transform: translate(-50%, -50%); width: 28px; height: 28px; font-size: 13px; box-shadow: 0 0 0 4px rgba(236, 234, 228, 0.72); }
+@media (max-width: 639px) {
+  .hero--photo { --photo: 33svh; }
+  .hero--photo .hero__kicker { display: none; }
+}
+@media (min-width: 1024px) {
+  .cutaway { margin-top: var(--s-9); }
+}
+h1, h2 { hyphens: manual; -webkit-hyphens: manual; text-wrap: balance; }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
@@ -174,57 +203,70 @@ small, .t-small, .rows .rows__name small, .sketch-folio__label, .hero__kicker, .
 </header>
 
 <main id="top">
-  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
-    <div class="wrap">
-      <div class="hero-text grid hero__grid">
-        <div class="hero__text span-5">
-          <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Lake Houston and Greater Houston</p>
-          <h1 id="hero-h">Landscape design and drainage for Houston yards</h1>
-          <p class="hero__lead">3D site plans, French drains, honed limestone patios and Western Red Cedar pergolas by Diego Ortiz and crew. Built around laser slope, clay soil prep and HOA review.</p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="#walkthrough">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-            <a class="btn btn--secondary" href="#services">See services and pricing</a>
-          </div>
-        </div>
-        <div class="hero__media m-zoom span-6 start-7">
-          <img
-            src="assets/client/hero-pavilion-1256.webp"
-            srcset="assets/client/hero-pavilion-754.webp 754w, assets/client/hero-pavilion-1256.webp 1256w"
-            sizes="(max-width: 1023px) 92vw, 628px"
-            width="1256"
-            height="1432"
-            alt="Evening architectural view of a Texas limestone terrace with warm landscape lighting, Western Red Cedar louver pergola, courtyard tree oculus and outdoor kitchen island"
-            data-source="commissioned"
-            data-subject="Nocturnal limestone terrace and Western Red Cedar louver pergola"
-            style="--ly-pos: 50% 54%"
-            fetchpriority="high">
-          <div class="ly-float">
-            <div class="ly-float__row"><span class="ly-live">3D plan</span><span>HOA packet</span></div>
-            <div class="ly-float__title">Slope, drain line and plant schedule</div>
-          </div>
+  <section class="hero hero--photo" data-box="none" data-tone="dark" data-calm="left" data-enter aria-labelledby="hero-h">
+    <img class="hero__bg"
+      src="assets/client/hero-wide-2400.webp"
+      srcset="assets/client/hero-wide-1440.webp 1440w, assets/client/hero-wide-2400.webp 2400w"
+      sizes="(max-width: 1023px) 170vw, 100vw"
+      width="2400"
+      height="1350"
+      alt="Evening view of a limestone terrace under a steel and Western Red Cedar louver pergola, with a courtyard tree rising through the roof oculus and an outdoor kitchen island"
+      data-source="commissioned"
+      data-subject="Nocturnal limestone terrace and cedar louver pergola, wide view"
+      style="--ly-pos: 62% 50%; --ly-pos-phone: 70% 50%"
+      fetchpriority="high">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__text">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Lake Houston and Greater Houston</p>
+        <h1 id="hero-h">Landscape design and <em>drainage</em> for Houston yards</h1>
+        <p class="hero__lead">3D site plans, French drains, honed limestone patios and Western Red Cedar pergolas by Diego Ortiz and crew. Built around laser slope, clay soil prep and HOA review.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#walkthrough">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#services">See services and pricing</a>
         </div>
       </div>
-    </div>
+      <dl class="hero__facts">
+        <div><dt>Slab pitch</dt><dd>Two percent off the foundation</dd></div>
+        <div><dt>Stone base</dt><dd>Six inches of crushed limestone</dd></div>
+        <div><dt>Drain line</dt><dd>Four-inch perforated pipe</dd></div>
+        <div><dt>HOA packet</dt><dd>Scaled 3D views and setbacks</dd></div>
+      </dl>
+    </div></div>
   </section>
 
-  <section class="section ground-surface" id="standard" data-moment="word-highlight" aria-labelledby="standard-h">
-    <div class="wrap statement-wrap">
-      <div class="section-head">
-        <h2 id="standard-h">Houston clay soil and stormwater engineering</h2>
+  <section class="section ground-inverse sheet" id="standard" data-moment="word-highlight" aria-labelledby="standard-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5 stack-5">
+        <div class="section-head">
+          <h2 id="standard-h">Houston clay soil and <em>stormwater</em> engineering</h2>
+        </div>
+        <p class="mo-wh__text">Expansive gumbo clay traps storm runoff and shifts unreinforced slabs. We engineer <strong>laser slope, gravel French drains and stone base depth</strong> before laying a single paver.</p>
+        <ol class="layers">
+          <li><span class="layers__n" aria-hidden="true">1</span><div><strong>Honed limestone pavers</strong><p>Pitched two percent away from the house foundation.</p></div></li>
+          <li><span class="layers__n" aria-hidden="true">2</span><div><strong>Flush stainless catch basin</strong><p>Downspouts and soggy side yards tie in at the surface.</p></div></li>
+          <li><span class="layers__n" aria-hidden="true">3</span><div><strong>Filter-wrapped gravel trench</strong><p>Washed crushed limestone keeps silt out of the line.</p></div></li>
+          <li><span class="layers__n" aria-hidden="true">4</span><div><strong>Four-inch perforated pipe</strong><p>Discharges to the street curb, never against the slab.</p></div></li>
+          <li><span class="layers__n" aria-hidden="true">5</span><div><strong>Gumbo clay subgrade</strong><p>Organic topsoil out, stable subgrade compacted in lifts.</p></div></li>
+        </ol>
       </div>
-      <p class="mo-wh__text">Expansive Houston gumbo clay traps storm runoff and shifts unreinforced slabs. We engineer <strong>laser slope, gravel French drains and stone base depth</strong> before laying a single paver.</p>
-      <div class="grid statement-pillars">
-        <div class="span-4">
-          <h3>French drains and catch basins</h3>
-          <p>Downspouts and soggy side yards tie into filter-wrapped gravel trenches and flush stainless surface grates.</p>
-        </div>
-        <div class="span-4">
-          <h3>3D HOA submittal drawings</h3>
-          <p>Scaled architectural views, property setbacks and material callouts formatted for neighborhood review boards.</p>
-        </div>
-        <div class="span-4">
-          <h3>Freeze-hardy Gulf plant beds</h3>
-          <p>Agave, Gulf muhly, yaupon holly and live oak selections chosen for summer drought and February freezes.</p>
+      <div class="span-6 start-7">
+        <div class="cutaway m-zoom">
+          <img
+            src="assets/client/drainage-section-1600.webp"
+            srcset="assets/client/drainage-section-960.webp 960w, assets/client/drainage-section-1600.webp 1600w"
+            sizes="(max-width: 1023px) 92vw, 760px"
+            width="1600"
+            height="900"
+            alt="Studio cutaway of a backyard drainage build: limestone pavers over a crushed stone base, a steel catch basin, a filter-lined gravel trench with a perforated pipe, and dark gumbo clay beside an agave bed"
+            data-source="commissioned"
+            data-subject="Daylight subsurface French drain cutaway through limestone patio and gumbo clay"
+            loading="lazy"
+            decoding="async">
+          <span class="pin" style="--x: 22%; --y: 28%" aria-hidden="true">1</span>
+          <span class="pin" style="--x: 61%; --y: 39%" aria-hidden="true">2</span>
+          <span class="pin" style="--x: 43%; --y: 58%" aria-hidden="true">3</span>
+          <span class="pin" style="--x: 53%; --y: 84%" aria-hidden="true">4</span>
+          <span class="pin" style="--x: 78%; --y: 72%" aria-hidden="true">5</span>
         </div>
       </div>
     </div>
@@ -268,14 +310,14 @@ small, .t-small, .rows .rows__name small, .sketch-folio__label, .hero__kicker, .
       <div class="span-6 start-7">
         <div class="services-photo m-zoom">
           <img
-            src="assets/client/services-elevation-1256.webp"
-            srcset="assets/client/services-elevation-754.webp 754w, assets/client/services-elevation-1256.webp 1256w"
+            src="assets/client/hero-pavilion-1256.webp"
+            srcset="assets/client/hero-pavilion-754.webp 754w, assets/client/hero-pavilion-1256.webp 1256w"
             sizes="(max-width: 1023px) 92vw, 628px"
             width="1256"
-            height="1570"
-            alt="Nocturnal side architectural elevation of a dark steel and Western Red Cedar pergola with warm uplighting across a limestone wall and bench"
+            height="1432"
+            alt="Close evening view under the cedar louver pergola: courtyard tree, cedar bench and the outdoor kitchen island in limestone"
             data-source="commissioned"
-            data-subject="Side architectural elevation of cedar louver pergola and limestone terrace"
+            data-subject="Under-pergola close view of courtyard tree, bench and kitchen island"
             loading="lazy"
             decoding="async">
         </div>
@@ -291,7 +333,6 @@ small, .t-small, .rows .rows__name small, .sketch-folio__label, .hero__kicker, .
           <p>Answers on Houston clay soil, neighborhood review boards, stone base prep and architectural concept sketches.</p>
         </div>
         <div class="sketch-folio">
-          <p class="sketch-folio__label">Architectural concept studies: terrace plinth, cantilevers, earth cutaway and timber grid</p>
           <div class="sketch-grid">
             <div class="sketch-plate m-zoom">
               <img
