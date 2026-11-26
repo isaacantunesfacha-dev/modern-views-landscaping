@@ -1,0 +1,522 @@
+<!doctype html>
+<!--
+PLAN
+1. kind: service (Modern Views Landscaping LLC — Houston, TX landscape design, drainage, hardscape & outdoor carpentry; owner Diego Ortiz). Mobile-first dark architectural mood requested by client brief. 6 screens: hero (split), #standard (word-highlight statement on dark slate surface), #services (services-list + nocturnal side elevation), #questions (2x2 architectural concept sketch folio + open 2-col FAQ on shared split line), #process (photo-chapters 4-stage nocturnal architectural sequence), footer#walkthrough (close--type on dark slate surface).
+2. palette brand-dark (bg #0e1311, surface #171c19, ink #ecebe7, accent #d4956a): nocturnal pine-obsidian ground echoes twilight Houston garden lighting, warm bone ink echoes honed Texas limestone, and oiled cedar accent answers Western Red Cedar louvers. type: instrument-serif (Instrument Serif 400 + Instrument Sans 400/500). hero: split. moments: photo-chapters (#process) + word-highlight (#standard); hero entrance: headline arrives first, then lead and visit action; hover: every link, row and button answers.
+-->
+<html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<meta name="page-kind" content="service">
+<title>Modern Views Landscaping: landscape design and drainage in Houston</title>
+<meta name="description" content="3D landscape design, French drains for Houston gumbo clay, honed limestone patios, smart irrigation and Western Red Cedar pergolas across Lake Houston and Greater Houston.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Modern Views Landscaping">
+<meta property="og:title" content="Modern Views Landscaping: landscape design and drainage in Houston">
+<meta property="og:description" content="3D landscape plans, French drains for Houston gumbo clay, honed limestone patios and Western Red Cedar pergolas by Diego Ortiz and crew.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modern Views Landscaping: landscape design and drainage in Houston">
+<meta name="twitter:description" content="3D landscape plans, French drains for Houston gumbo clay, honed limestone patios and Western Red Cedar pergolas in Greater Houston.">
+<meta name="twitter:image" content="share.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0e1311">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wdth,wght@75..100,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<link rel="stylesheet" href="assets/moments/photo-chapters/moment.css">
+<link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
+<style>
+:root {
+  --p-bg: #0e1311; --p-surface: #171c19; --p-ink: #ecebe7; --p-muted: #9aa09b;
+  --p-accent: #d4956a; --p-accent-ink: #0e1311; --p-action: #d4956a; --p-action-ink: #0e1311;
+  --p-inv-bg: #171c19; --p-inv-surface: #202723; --p-inv-ink: #ecebe7; --p-inv-muted: #a3aaa4;
+  --p-inv-accent: #d4956a; --p-inv-accent-ink: #0e1311; --p-inv-action: #d4956a; --p-inv-action-ink: #0e1311;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-text: "Instrument Sans", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.022em;
+  --display-tracking-xl: -0.028em;
+  --ly-scale: 0.94;
+}
+/* Explicit optical line-height and letter-spacing across every type level (never auto/normal) */
+body { line-height: 1.62; letter-spacing: 0.004em; }
+h1, .t-h1, .hero h1 { line-height: 1.04; letter-spacing: -0.028em; }
+h2, .t-h2 { line-height: 1.10; letter-spacing: -0.022em; }
+h3, .t-h3, #questions .faq .faq__item > h3, .statement-pillars h3, #process .mo-ph__ch h3, #process.is-live .mo-ph__ch h3 {
+  line-height: 1.24; letter-spacing: -0.012em;
+}
+p, .t-body, .section-head p, .faq__item p, .statement-pillars p, .mo-ph__ch p, .rows > li > p, .closing__cta p {
+  line-height: 1.62; letter-spacing: 0.004em;
+}
+.hero .hero__lead { line-height: 1.58; letter-spacing: 0.002em; }
+.mo-wh__text { line-height: 1.18; letter-spacing: -0.02em; }
+small, .t-small, .rows .rows__name small, .sketch-folio__label, .hero__kicker, .ly-float__row, .mo-ph__count, .footer ul, .footer__legal {
+  line-height: 1.45; letter-spacing: 0.015em;
+}
+.ly-float__title { line-height: 1.35; letter-spacing: 0.002em; }
+.rows__name, .rows__value { line-height: 1.45; letter-spacing: 0.004em; }
+.footer__lede { line-height: 1.38; letter-spacing: -0.01em; }
+
+/* Architectural luminance borders & owner-app surface elevation */
+.hero__media, .services-photo, #process.is-live .mo-ph__stage {
+  border: 1px solid rgba(236, 235, 231, 0.11);
+  box-shadow: inset 0 1px 0 rgba(236, 235, 231, 0.10);
+}
+.sketch-plate {
+  border: 1px solid rgba(236, 235, 231, 0.11);
+  border-top-color: rgba(236, 235, 231, 0.18);
+}
+.ly-float, #process.is-live .mo-ph__panel {
+  background: #171c19;
+  border: 1px solid rgba(212, 149, 106, 0.28);
+  box-shadow: inset 0 1px 0 rgba(236, 235, 231, 0.10);
+}
+
+/* Mobile-first base styles (320px -> 639px -> 1024px+) */
+.rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-small); margin-top: 2px; }
+#services .rows > li { padding-block: 9px; }
+.services-photo { position: relative; overflow: hidden; border-radius: var(--r-lg); height: 520px; margin-top: var(--s-6); background: var(--surface); }
+.services-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 46%; }
+
+#standard .section-head { margin-bottom: var(--s-4); }
+.statement-wrap { display: grid; align-content: start; gap: var(--s-6); }
+.statement-pillars { margin-top: var(--s-4); }
+.statement-pillars h3 { font-family: var(--font-text); font-weight: 500; font-size: var(--t-lead); margin-bottom: var(--s-2); color: var(--ink); }
+.statement-pillars p { color: var(--ink); max-width: 34ch; }
+
+/* Architectural book sketch corner (2x2 blueprint plate folio) */
+.sketch-folio { margin-top: var(--s-3); display: grid; gap: var(--s-2); }
+.sketch-folio__label { font-size: var(--t-small); color: var(--muted); }
+.sketch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+.sketch-plate { border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+.sketch-plate > img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+
+#questions .section-head { margin-bottom: var(--s-3); }
+#questions .faq { margin-top: var(--s-4); }
+#questions .faq > .faq__item { padding: 10px 0; }
+#questions .faq > .faq__item:first-child { padding-top: 0; }
+#process.is-live > .mo-ph { padding-bottom: calc(var(--padb, 72px) + var(--bar, 0px)); }
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .services-photo { height: auto; aspect-ratio: 4 / 3; }
+}
+@media (min-width: 1024px) {
+  .services-photo { margin-top: 0; height: min(620px, var(--ly-fit)); }
+  #questions .section-head { margin-bottom: var(--s-5); }
+  #questions .faq { margin-top: 0; }
+  #questions .faq > .faq__item { padding: 12px 0; }
+  #questions .faq > .faq__item:first-child { padding-top: 0; }
+  .sketch-folio { margin-top: var(--s-3); gap: var(--s-2); }
+  .sketch-grid { gap: var(--s-3); }
+  .sketch-plate > img { aspect-ratio: 16 / 11; }
+}
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Modern Views Landscaping LLC",
+  "founder": { "@type": "Person", "name": "Diego Ortiz" },
+  "description": "Residential and commercial 3D landscape design, French drain and catch-basin installation, smart irrigation, concrete and limestone hardscaping, and Western Red Cedar pergolas in Greater Houston, Texas.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Houston",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Lake Houston, Houston",
+    "Kingwood, Houston",
+    "Humble, Texas",
+    "Atascocita, Texas",
+    "The Woodlands, Texas",
+    "Memorial, Houston",
+    "Katy, Texas"
+  ]
+}
+</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="stack" aria-hidden="true"></span>Modern Views</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="#standard">Approach</a></div>
+      <div class="nav__item"><a class="nav__link" href="#services">Services</a></div>
+      <div class="nav__item"><a class="nav__link" href="#questions">Questions</a></div>
+      <div class="nav__item"><a class="nav__link" href="#process">Process</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="#walkthrough">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-text grid hero__grid">
+        <div class="hero__text span-5">
+          <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Lake Houston and Greater Houston</p>
+          <h1 id="hero-h">Landscape design and drainage for Houston yards</h1>
+          <p class="hero__lead">3D site plans, French drains, honed limestone patios and Western Red Cedar pergolas by Diego Ortiz and crew. Built around laser slope, clay soil prep and HOA review.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#walkthrough">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+            <a class="btn btn--secondary" href="#services">See services and pricing</a>
+          </div>
+        </div>
+        <div class="hero__media m-zoom span-6 start-7">
+          <img
+            src="assets/client/hero-pavilion-1256.webp"
+            srcset="assets/client/hero-pavilion-754.webp 754w, assets/client/hero-pavilion-1256.webp 1256w"
+            sizes="(max-width: 1023px) 92vw, 628px"
+            width="1256"
+            height="1432"
+            alt="Evening architectural view of a Texas limestone terrace with warm landscape lighting, Western Red Cedar louver pergola, courtyard tree oculus and outdoor kitchen island"
+            data-source="commissioned"
+            data-subject="Nocturnal limestone terrace and Western Red Cedar louver pergola"
+            style="--ly-pos: 50% 54%"
+            fetchpriority="high">
+          <div class="ly-float">
+            <div class="ly-float__row"><span class="ly-live">3D plan</span><span>HOA packet</span></div>
+            <div class="ly-float__title">Slope, drain line and plant schedule</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="standard" data-moment="word-highlight" aria-labelledby="standard-h">
+    <div class="wrap statement-wrap">
+      <div class="section-head">
+        <h2 id="standard-h">Houston clay soil and stormwater engineering</h2>
+      </div>
+      <p class="mo-wh__text">Expansive Houston gumbo clay traps storm runoff and shifts unreinforced slabs. We engineer <strong>laser slope, gravel French drains and stone base depth</strong> before laying a single paver.</p>
+      <div class="grid statement-pillars">
+        <div class="span-4">
+          <h3>French drains and catch basins</h3>
+          <p>Downspouts and soggy side yards tie into filter-wrapped gravel trenches and flush stainless surface grates.</p>
+        </div>
+        <div class="span-4">
+          <h3>3D HOA submittal drawings</h3>
+          <p>Scaled architectural views, property setbacks and material callouts formatted for neighborhood review boards.</p>
+        </div>
+        <div class="span-4">
+          <h3>Freeze-hardy Gulf plant beds</h3>
+          <p>Agave, Gulf muhly, yaupon holly and live oak selections chosen for summer drought and February freezes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services" style="--hm: 2" aria-labelledby="services-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="services-h">Landscape services and Houston pricing</h2>
+          <p>Typical residential starting scopes across Greater Houston, confirmed in writing after we measure your lot.</p>
+        </div>
+        <ul class="rows">
+          <li>
+            <span class="rows__name">3D landscape design<small>Site survey, 3D views and HOA submittal packet</small></span>
+            <span class="rows__value" data-assumed>from $850</span>
+          </li>
+          <li>
+            <span class="rows__name">French drains and grading<small>Laser slope check, catch basins and gravel pipe trench</small></span>
+            <span class="rows__value" data-assumed>from $2,400</span>
+          </li>
+          <li>
+            <span class="rows__name">Smart irrigation systems<small>Zoned drip lines, rotary heads and rain-freeze sensor</small></span>
+            <span class="rows__value" data-assumed>from $2,800</span>
+          </li>
+          <li>
+            <span class="rows__name">Concrete patio extensions<small>Rebar-doweled slabs, walkways and equipment pads</small></span>
+            <span class="rows__value" data-assumed>from $4,800</span>
+          </li>
+          <li>
+            <span class="rows__name">Limestone and paver patios<small>Six-inch compacted stone base and mortared coping</small></span>
+            <span class="rows__value" data-assumed>from $6,500</span>
+          </li>
+          <li>
+            <span class="rows__name">Cedar pergolas and carpentry<small>Powder-coated steel footings and oiled cedar louvers</small></span>
+            <span class="rows__value" data-assumed>from $7,200</span>
+          </li>
+        </ul>
+        <p style="margin-top: var(--s-3)"><a class="link" href="#walkthrough">Ask for a written yard estimate</a></p>
+      </div>
+      <div class="span-6 start-7">
+        <div class="services-photo m-zoom">
+          <img
+            src="assets/client/services-elevation-1256.webp"
+            srcset="assets/client/services-elevation-754.webp 754w, assets/client/services-elevation-1256.webp 1256w"
+            sizes="(max-width: 1023px) 92vw, 628px"
+            width="1256"
+            height="1570"
+            alt="Nocturnal side architectural elevation of a dark steel and Western Red Cedar pergola with warm uplighting across a limestone wall and bench"
+            data-source="commissioned"
+            data-subject="Side architectural elevation of cedar louver pergola and limestone terrace"
+            loading="lazy"
+            decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions" style="--hm: 2" aria-labelledby="questions-h">
+    <div class="wrap grid grid--top">
+      <div class="span-5">
+        <div class="section-head">
+          <h2 id="questions-h">Drainage, patio and HOA questions</h2>
+          <p>Answers on Houston clay soil, neighborhood review boards, stone base prep and architectural concept sketches.</p>
+        </div>
+        <div class="sketch-folio">
+          <p class="sketch-folio__label">Architectural concept studies: terrace plinth, cantilevers, earth cutaway and timber grid</p>
+          <div class="sketch-grid">
+            <div class="sketch-plate m-zoom">
+              <img
+                src="assets/client/sketch-01-terrace-plinth-540.webp"
+                srcset="assets/client/sketch-01-terrace-plinth-360.webp 360w, assets/client/sketch-01-terrace-plinth-540.webp 540w"
+                sizes="(max-width: 639px) 165px, 248px"
+                width="540"
+                height="405"
+                alt="Architectural ink sketch of a raised modernist garden terrace deck with stepped courtyard ramp and potted plantings"
+                data-source="illustration"
+                data-subject="Architectural ink study of an elevated terrace garden plinth"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <div class="sketch-plate m-zoom">
+              <img
+                src="assets/client/sketch-02-axonometric-planes-540.webp"
+                srcset="assets/client/sketch-02-axonometric-planes-360.webp 360w, assets/client/sketch-02-axonometric-planes-540.webp 540w"
+                sizes="(max-width: 639px) 165px, 248px"
+                width="540"
+                height="405"
+                alt="Axonometric architectural line drawing of cantilevered horizontal roof slabs, steel posts and glazed corner mullions"
+                data-source="illustration"
+                data-subject="Axonometric architectural sketch of cantilevered planes and steel posts"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <div class="sketch-plate m-zoom">
+              <img
+                src="assets/client/sketch-03-subsurface-cutaway-540.webp"
+                srcset="assets/client/sketch-03-subsurface-cutaway-360.webp 360w, assets/client/sketch-03-subsurface-cutaway-540.webp 540w"
+                sizes="(max-width: 639px) 165px, 248px"
+                width="540"
+                height="405"
+                alt="Cross-section architectural pen drawing of a sloped hillside grade, retaining walls and recessed courtyard chambers"
+                data-source="illustration"
+                data-subject="Cross-section architectural sketch of sloped terrain and retaining walls"
+                loading="lazy"
+                decoding="async">
+            </div>
+            <div class="sketch-plate m-zoom">
+              <img
+                src="assets/client/sketch-04-timber-sequence-540.webp"
+                srcset="assets/client/sketch-04-timber-sequence-360.webp 360w, assets/client/sketch-04-timber-sequence-540.webp 540w"
+                sizes="(max-width: 639px) 165px, 248px"
+                width="540"
+                height="405"
+                alt="Sequential isometric architectural sketch showing modular foundation blocks, string-line leveling and parallel timber rafters"
+                data-source="illustration"
+                data-subject="Sequential architectural sketch of foundation leveling and timber rafters"
+                loading="lazy"
+                decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="span-6 start-7">
+        <div class="faq">
+          <div class="faq__item">
+            <h3>Standing water along Houston slabs and fences</h3>
+            <p>New sod rots quickly on saturated Houston gumbo clay when rainwater has no exit route. We shoot laser elevations across the side yard and install catch basins and gravel-packed French drains discharging to the street curb.</p>
+          </div>
+          <div class="faq__item">
+            <h3>3D landscape plans for Houston HOA committees</h3>
+            <p>Homeowners in Summerwood, Fall Creek, Kingwood, The Woodlands and Bridgeland receive scaled 3D architectural views, lot line setbacks, pergola roof heights and plant schedules formatted for neighborhood review boards.</p>
+          </div>
+          <div class="faq__item">
+            <h3>Compacted stone bases for Houston backyard patios</h3>
+            <p>We excavate organic topsoil down to stable subgrade, compact six inches of crushed limestone aggregate in lifts, tie steel rebar grid and pitch every hardscape slab two percent away from the house foundation.</p>
+          </div>
+          <div class="faq__item">
+            <h3>Zoned drip irrigation and cedar pergola footings</h3>
+            <p>Pergola steel columns bolt to reinforced concrete piers set below the active clay swell zone, while existing sprinkler zones are re-piped into separate turf rotary heads and planted-bed drip lines.</p>
+          </div>
+          <div class="faq__item">
+            <h3>Measurements taken during a Houston yard visit</h3>
+            <p>Diego Ortiz walks the lot with you, checks drainage slope, sun angles and irrigation pressure, and follows up with a written line-item scope.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process" data-moment="photo-chapters" aria-labelledby="process-h">
+    <div class="wrap mo-ph">
+      <div class="mo-ph__head">
+        <h2 id="process-h">Four build stages from lot survey to cedar pergola</h2>
+        <p>Every backyard project runs in structural order so drainage, stone slabs and timber roofs stay level.</p>
+      </div>
+      <ol class="mo-ph__list">
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic">
+            <img
+              src="assets/client/chapter-01-plan-1600.webp"
+              srcset="assets/client/chapter-01-plan-960.webp 960w, assets/client/chapter-01-plan-1600.webp 1600w"
+              sizes="(max-width: 639px) 740px, 1280px"
+              width="1600"
+              height="1200"
+              alt="Orthographic top-down nocturnal architectural masterplan of a limestone patio, cedar louver roof with circular tree opening, outdoor kitchen island and perimeter slot drain"
+              data-source="commissioned"
+              data-subject="Top-down architectural backyard masterplan"
+              loading="lazy"
+              decoding="async">
+          </figure>
+          <h3>Scaled 3D plan and HOA review</h3>
+          <p>We shoot elevations across your yard, mark easements and build a 3D architectural model showing sun shade, paver joints and plant massing before HOA submission.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic">
+            <img
+              src="assets/client/chapter-02-drainage-1600.webp"
+              srcset="assets/client/chapter-02-drainage-960.webp 960w, assets/client/chapter-02-drainage-1600.webp 1600w"
+              sizes="(max-width: 639px) 740px, 1280px"
+              width="1600"
+              height="1200"
+              alt="Dark-studio cross-section architectural cutaway block showing Houston gumbo clay, filter-lined crushed limestone gravel trench, perforated French drain pipe and flush steel catch basin"
+              data-source="commissioned"
+              data-subject="Sub-surface French drain and gumbo clay engineering cutaway"
+              loading="lazy"
+              decoding="async">
+          </figure>
+          <h3>Clay trenching and French drains</h3>
+          <p>Standing water gets intercepted at the source with filter-wrapped washed gravel trenches, rigid four-inch perforated pipe and flush stainless catch basins.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic">
+            <img
+              src="assets/client/chapter-03-sequence-1600.webp"
+              srcset="assets/client/chapter-03-sequence-960.webp 960w, assets/client/chapter-03-sequence-1600.webp 1600w"
+              sizes="(max-width: 639px) 740px, 1280px"
+              width="1600"
+              height="1200"
+              alt="Four sequential architectural scale plinths on dark slate showing clay excavation, rebar and crushed stone base, honed limestone pavers, and finished steel and cedar pergola"
+              data-source="commissioned"
+              data-subject="Four-stage foundation, rebar, stone slab and pergola build sequence"
+              loading="lazy"
+              decoding="async">
+          </figure>
+          <h3>Compacted stone base and rebar slab</h3>
+          <p>We compact six inches of crushed limestone road base, tie steel rebar grid and concrete pier footings, and set honed Texas limestone at a two-percent drainage slope.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic">
+            <img
+              src="assets/client/chapter-04-joinery-1600.webp"
+              srcset="assets/client/chapter-04-joinery-960.webp 960w, assets/client/chapter-04-joinery-1600.webp 1600w"
+              sizes="(max-width: 639px) 740px, 1280px"
+              width="1600"
+              height="1200"
+              alt="Close-up nocturnal studio detail of powder-coated dark steel post, brushed stainless knife-plate bolts and oiled Western Red Cedar sun louvers"
+              data-source="commissioned"
+              data-subject="Close-up joinery of steel pergola beam, stainless bolts and cedar rafters"
+              loading="lazy"
+              decoding="async">
+          </figure>
+          <h3>Steel hardware and cedar carpentry</h3>
+          <p>Outdoor structures pair powder-coated structural steel columns and stainless brackets with kiln-dried Western Red Cedar louvers and zoned drip irrigation.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing ground-surface" id="walkthrough" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Schedule a Houston yard visit</h2>
+        <p>Send your neighborhood and what your backyard needs: drainage, a 3D HOA plan, limestone pavers or a cedar pergola.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:walkthrough@modernviews.example?subject=Houston%20Yard%20Visit">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><span class="mark" data-mark="stack" aria-hidden="true"></span>Modern Views</a>
+          <p class="footer__lede">3D landscape design, clay drainage, limestone patios and cedar pergolas across Greater Houston.</p>
+        </div>
+        <div class="span-2 footer__col">
+          <h3>Scopes</h3>
+          <ul>
+            <li><a href="#services">3D plans</a></li>
+            <li><a href="#services">French drains</a></li>
+            <li><a href="#services">Patios</a></li>
+          </ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h3>Build</h3>
+          <ul>
+            <li><a href="#standard">Approach</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#questions">Questions</a></li>
+          </ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h3>Areas</h3>
+          <ul>
+            <li>Lake Houston</li>
+            <li>Kingwood</li>
+            <li>The Woodlands</li>
+          </ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h3>Visits</h3>
+          <ul>
+            <li><a href="mailto:walkthrough@modernviews.example">Email crew</a></li>
+            <li><a href="https://www.instagram.com/modernviews_landscaping/" rel="noopener">Instagram</a></li>
+            <li data-assumed>Mon to Sat</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Modern Views Landscaping LLC &nbsp; <a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="Quick actions">
+  <a class="btn btn--primary" href="#walkthrough">Book a visit<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+</nav>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/moments/moments.js"></script>
+</body>
+</html>
